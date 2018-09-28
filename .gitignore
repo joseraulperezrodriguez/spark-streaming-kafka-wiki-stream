@@ -1,0 +1,66 @@
+*.idea/
+*.iml
+*.project
+*.cproject
+*dependency-reduced-pom.xml
+*.deb
+derby.log
+metastore_db
+IBM*
+desktop.ini
+.DS_Store
+# Folders #
+###########
+bin/
+Debug/
+Release/
+build/
+target/
+.settings/
+.apt_generated/
+# Files #
+#########
+.classpath
+.project
+.springBeans
+project.properties
+proguard-project.txt
+.factorypath
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+# Logs and databases #
+######################
+*.log
+*.sqlite
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db/wallet
+.idea/*
+*.iml
+/derby.log
+**/spark-warehouse/
