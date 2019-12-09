@@ -13,8 +13,8 @@ class WikiQueue(capacity: Int) {
 	def add(data: String): Boolean = {
 		if(size.get() < queue.length) {
 			queue.update(tail,data)
-			size.incrementAndGet();
-			tail = ((tail + 1) % queue.length);			
+			size.incrementAndGet()
+			tail = (tail + 1) % queue.length
 			true
 		} else false		
 	}
@@ -32,7 +32,7 @@ class WikiQueue(capacity: Int) {
 		head = (head + cs) % queue.length
 		size.getAndAdd(cs * (-1))
 		
-		popList;
+		popList
 	}
   
 }

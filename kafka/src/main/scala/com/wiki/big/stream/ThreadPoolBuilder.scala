@@ -5,7 +5,7 @@ import java.util.concurrent.Executors
 
 object ThreadPoolBuilder {
   
-  def buildExecutionContext(size: Int): ExecutionContext = {
+  def buildExecutionContext(size: Int): ExecutionContext =
    new ExecutionContext {
     val threadPool = Executors.newFixedThreadPool(size);
 
@@ -15,7 +15,5 @@ object ThreadPoolBuilder {
 
     def reportFailure(t: Throwable) {}
   } 
-    
-  }  
-  
+
 }
