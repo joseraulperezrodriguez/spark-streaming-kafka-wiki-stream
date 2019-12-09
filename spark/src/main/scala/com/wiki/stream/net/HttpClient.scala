@@ -7,24 +7,23 @@ import scala.concurrent.ExecutionContext
 
 class HttpClient(url: String)(implicit val taskExecutor: ExecutionContext) {
   
-  val urlR = new URL(url);
+  val urlR = new URL(url)
   
   def sendData(json: String) {
       val connection = urlR.openConnection().asInstanceOf[HttpURLConnection]
-			connection.setRequestMethod("POST")
-			connection.setRequestProperty("Content-Type", "application/json")
-			connection.setRequestProperty("Content-Length", Integer.toString(json.getBytes().length))
-			connection.setRequestProperty("Content-Language", "en-US")
-			connection.setUseCaches(false)
-			connection.setDoOutput(true)
+      connection.setRequestMethod("POST")
+      connection.setRequestProperty("Content-Type", "application/json")
+      connection.setRequestProperty("Content-Length", Integer.toString(json.getBytes().length))
+      connection.setRequestProperty("Content-Language", "en-US")
+      connection.setUseCaches(false)
+      connection.setDoOutput(true)
 
-			val wr = new DataOutputStream(connection.getOutputStream())					
-			wr.write(json.getBytes())
-			wr.flush()
-			wr.close()
-						
-			taskExecutor.execute(new SendRunnable(connection));
+      val wr = new DataOutputStream(connection.getOutputStream())
+      wr.write(json.getBytes())
+      wr.flush()
+      wr.close()
+
+      taskExecutor.execute(new SendRunnable(connection))
   }
-  
   
 }

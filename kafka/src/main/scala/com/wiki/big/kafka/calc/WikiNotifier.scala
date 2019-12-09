@@ -4,6 +4,6 @@ import com.wiki.big.net.HttpClient
 
 class WikiNotifier(client: HttpClient, data: String) extends Runnable {
   
-	def run() = client.sendData(data)			
+  def run() = client.sendData(data)
   
 }

@@ -8,9 +8,9 @@ class SendRunnable(connection: HttpURLConnection) extends Runnable {
   
   def run() {
     val is = connection.getInputStream()
-		val rd = new BufferedReader(new InputStreamReader(is));
+    val rd = new BufferedReader(new InputStreamReader(is))
     rd.lines()
-		rd.close();
+    rd.close()
   }
   
 }

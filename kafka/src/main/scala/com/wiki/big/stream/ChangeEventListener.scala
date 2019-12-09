@@ -15,21 +15,22 @@ class ChangeEventListener(producer:KafkaProducer[Int,String], callback:ProducerC
     var messageNum=0
     
     def onEvent(arg0: InboundEvent) {
-  		val obj = new JSONObject(arg0.readData())
-  		  .put("producer_time", System.currentTimeMillis())
-  		
-  		val modality = obj.getString("wiki")
-  		
-  		val modAns = if(modality.contains("mediawiki")) "wikimedia"
-  		else if(modality.contains("wikidata"))"wikidata"
-  		else if(modality.contains("wiktionary"))"wiktionary"
-  		else if(modality.contains("commonswiki"))"wikicommons"
-  		else if(modality.length() == 6)"wikipedia"
-  		else "wikiother"
-  		
-  		obj.put("modality", modality)
-  		messageNum += 1
-  		producer.send(new ProducerRecord[Int, String](modality,messageNum,obj.toString()), callback)		
-	}
+      val obj = new JSONObject(arg0.readData())
+        .put("producer_time", System.currentTimeMillis())
+
+      val modality = obj.getString("wiki")
+
+      val modAns =
+        if(modality.contains("mediawiki")) "wikimedia"
+        else if(modality.contains("wikidata"))"wikidata"
+        else if(modality.contains("wiktionary"))"wiktionary"
+        else if(modality.contains("commonswiki"))"wikicommons"
+        else if(modality.length() == 6)"wikipedia"
+        else "wikiother"
+
+      obj.put("modality", modAns)
+      messageNum += 1
+      producer.send(new ProducerRecord[Int, String](modality,messageNum,obj.toString()), callback)
+  }
   
 }
