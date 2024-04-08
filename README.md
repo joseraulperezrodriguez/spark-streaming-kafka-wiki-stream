@@ -1,5 +1,7 @@
 # Kafka+Spark Streaming, Wiki Demo
 
+You can see the demo running live here: https://bigdata.stratebi.com/
+
 <p>The project consists on two modules:</p>
 
 - kafka
